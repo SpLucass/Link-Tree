@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--Definindo um documento HTML5 (5 é só a versão do HTML)-->
+<html lang="pt-br" class="">
+  <!-- Elemento raiz do HTML. Propriedade lan em pt do Brasil  -->
+
+  <!--Head e body são duas tags filhas (ou nós). 
+  
+  Head é responsável pelo ajuste de configurações do documento que não são vísiveis para quem acessa a página (com exceção de "title").  
+
+  Body é a parte vísivel, ou seja, a parte de introdução de informações e textos na página;
+
+  meta: configurações do documento;
+
+-->
+
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!--Instrução adquirida no google fontes para adicionar determinada fonte ao programa-->
+
+    <meta charset="UTF-8" />
+    <!--Utilizado para definir os caracteres a serem utilizados na pagina-->
+    <meta http-equiv="X-UA_Compatible" content="IE=edge" />
+    <!--Compatibilidade com navegadores mais antigos-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Definindo que a parte vísivel da página seja adaptada para visualização em celular, pc e zooms variáveis-->
+    <title>SITE DO LUCAS</title>
+    <!--Nomeia a aba que será aberta no navegador-->
+    <link rel="stylesheet" href="./style.css" />
+    <!--Faz o link do CSS no arquivo html. A parte de rel define o tipo de arquivo a ser relacionado com esse arquivo HTML, ou seja, será linkado um arquivo "stylesheet" A parte de href é onde o arquivo se encontra no mundo, logo, por se encontrar na mesma página do arquivo, foi necessário colocar apenas ./ para localizar o arquivo CSS.-->
+  </head>
+
+  <body>
+    <!--Tudo o que for adicionado aqui será visível na página.-->
+    <div id="container">
+      <!-- DIV é um elemento HTML que serve como um contêiner genérico, podendo receber diferentes tipos de conteúdos (texto, imagens etc.) -->
+      <div id="profile">
+        <img src="assets/Avatar.png" alt="Foto de Lucas Pereira se formando" />
+        <p>@lucs.sp</p>
+      </div>
+
+      <div id="switch">
+        <button onclick="toggleMode()"></button>
+        <span></span>
+      </div>
+
+      <ul>
+        <!--Tag utilizada para criar listas não ordenadas, onde o <li> é um item da lista -->
+        <li>
+          <a href="https://www.instagram.com/lucs.sp/" target="_blank"
+            >Instagram</a
+          >
+          <!--target="_blank" faz com que o link abra em outra aba.-->
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/lucas-da-silva-pereira-727bb7208/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/SpLucass" target="_blank">GitHub</a>
+        </li>
+        <li>
+          <a href="https://wa.me/+5511965047820" target="_blank">WhatsApp</a>
+        </li>
+      </ul>
+      <div id="social-links">
+        <a href="https://www.instagram.com/lucs.sp/" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/lucas-da-silva-pereira-727bb7208/"
+          target="_blank"
+        >
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+
+        <a href="https://github.com/SpLucass" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+
+        <a href="https://wa.me/+5511965047820" target="_blank">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+      </div>
+      <footer>
+        <!--Tag utilizada para fazer rodapés dos sites-->
+        Primeiro site montado por Lucas Pereira!
+      </footer>
+    </div>
+
+    <!--Os scripts abaixo foram coletados no ionicons. Link no figma da rocketseat-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="./script.js">
+      /*Adiiona o java script para o projeto */
+    </script>
+  </body>
+</html>

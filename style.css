@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  /*Remoção da margem e do padding padrão do naveador 
+  
+  *Padding= Preenchimento
+  */
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.1);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+/*Transição entre os modos night (:root) e light (.light)*/
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg); * Utilizado para definir onde se encontra a imagem
+  background-repeat: no-repeat;                  * Desabilita a repetição da imagem ao longo da página
+  background-position: top center;               * Posiciona a imagem na página
+  background-size: cover;                        * Faz com que a imagem cubra a tela
+
+  É possível unificar tudo isso em apenas um comando (shorthand ou atalho), conforme visto abaixo:
+
+  Sequência: color image repeat position/size
+  (Nesse caso não houve cor)
+ */
+  background: var(--bg-url) no-repeat top center/ cover;
+  color: var(--text-color);
+}
+
+body * {
+  /*"Body *" remete ao body inteiro! 
+  
+  Instrução (font-family: "Inter", sans-serif;)  adquirida no google fontes */
+
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  /*Div é um elemento block*/
+  width: 360px;
+  /*largura*/
+  /*height: 712px; * A altura foi retirada pois no css a altura é adaptada ao conteúdo // */
+  /*border: 1px solid rgb(122, 27, 122);
+  borda*/
+  margin: 56px auto 0px;
+}
+/*
+Conceitos de display:
+Display é basicamente a visualiação dos elementos:
+-Display None: não aparece //
+-Display Block: assume toda largura disponível na tela, obrigando que o próximo elemento seja inserido embaixo //
+-Display inline: segue uma linha colocando os elementos lado a lado //
+*/
+
+#profile {
+  /*É o "pai" do profile img, logo, é possível alinhar o texto dessa div o que obrigatóriamente irá alinhar a imagem abaixo */
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  /* Imagens são elementos inline, logo, não é possível aplicar margin auto, sendo necessário transformar o tipo de display ou alinhar de outra forma */
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+  /*
+  Estudar sobre layers para entender a sobreposição dos elementos do switch
+
+  Ao receber o position relative ele faz com que os elementos absolutos dentro do switch sejam RELATIVOS ao elemento switch, ou seja, os posicionamentos irão funcionar apenas dentro das bordas do switch */
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 1px solid #fa00b7;
+  border-radius: 50%;
+
+  position: absolute;
+  /*Por se tratar de um posicionamento absoluto ele pode navegar em qualquer lugar da pagina*/
+  top: 50%;
+  left: 0;
+  z-index: 1; /*Andar dos layers em que vai se localizar os elementos*/
+  transform: translateY(
+    -50%
+  ); /* Transforma as características do elemento, neste caso, vai centralizar o eixo x no meio do botão, por subir 50% do eixo x*/
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* lista */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+/*O display flex reúne todos os elementos de forma flexível, ou seja, eu posso definir como os elementos serão organizados (flex-direction).
+
+- row: lado a lado //
+- column: um abaixo do outro //
+
+* gap: espaça os elementos, idependentemente da organização (no caso dos exemplos, column ou row)
+*/
+
+ul li a {
+  display: flex;
+  /* Pesquisar sobre a linha main do display flex para entender a justificaçãp ao centro*/
+  justify-content: center;
+  padding: 16px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  /*Adição do efeito de embaçado no botão juntamente com um suporte para o navegador Safari vs 9*/
+
+  text-decoration: none; /*Remove sublinhado*/
+  font-weight: 500;
+  transition: background 0.3s;
+  /*temporiza as alterações, logo,faz com que a troca do background seja mais fluida*/
+}
+
+/* pseudo-selector: Os pseudo-seletores são uma parte do CSS que permite selecionar elementos com base em estados ou características específicas que não são representadas diretamente em seu código HTML. Em outras palavras, eles permitem selecionar elementos com base em determinadas condições ou interações. Nesse caso, as alterações serão aplicadas quando passar o mouse por cima */
+ul li a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid #d63cad;
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+  /*50% garante um circulo perfeito*/
+}
+
+#social-links {
+  display: flex;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+  border: 1.5px solid #d63cad;
+  padding: 16px;
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #fa00b7;
+}
