@@ -42,6 +42,8 @@ body {
  */
   background: var(--bg-url) no-repeat top center/ cover;
   color: var(--text-color);
+  height: 100vh;
+  /* Esta configuração de altura é para modelar a pagina no quesito altura para diversos dispositivos de tamanhos diferentes, "vh" é nada mais nada menos do que viewport height */
 }
 
 body * {
@@ -208,4 +210,15 @@ footer {
   text-align: center;
   font-size: 18px;
   color: #fa00b7;
+}
+
+/*media queries - configturações utilizadas para adaptar a página à diferentes dispositivos, logo, quando uma largura minima for atingida (min-width), às configurações serão aplicadas*/
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(.assets/bg-light-desktsop.jpg);
+  }
 }
