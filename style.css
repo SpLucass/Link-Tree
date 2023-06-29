@@ -111,16 +111,19 @@ Display é basicamente a visualiação dos elementos:
   position: absolute;
   /*Por se tratar de um posicionamento absoluto ele pode navegar em qualquer lugar da pagina*/
   top: 50%;
-  left: 0;
   z-index: 1; /*Andar dos layers em que vai se localizar os elementos*/
   transform: translateY(
     -50%
   ); /* Transforma as características do elemento, neste caso, vai centralizar o eixo x no meio do botão, por subir 50% do eixo x*/
+  animation: slide-back 0.2s forwards;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -220,5 +223,24 @@ footer {
 
   .light {
     --bg-url: url(.assets/bg-light-desktsop.jpg);
+  }
+}
+
+/* ANIMAÇÕES - No caso, trata-se de uma animação para suavizar a movimentação do botão de troca de modo escuro /claro */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
